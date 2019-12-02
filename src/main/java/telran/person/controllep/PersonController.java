@@ -15,7 +15,7 @@ import telran.person.service.PersonService;
 @RequestMapping("/person")
 public class PersonController {
 	@Autowired
-	PersonService personService;
+	PersonService   personService;
 	@PostMapping
 	public boolean addPerson(@RequestBody PersonDto personDto) {
 		return personService.addPerson(personDto);
