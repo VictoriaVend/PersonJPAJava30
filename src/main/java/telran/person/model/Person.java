@@ -5,6 +5,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +24,7 @@ import lombok.Setter;
 @Builder
 @Entity
 @Table(name = "persons") // название таблицы в базе данных (изначально(если не заданно) Person->persons)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Person implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -29,5 +32,7 @@ public class Person implements Serializable {
 	int id;
 	String name;
 	LocalDate birthDate;
+	//@EmbeddedId для того чтобы сделать поле Id для базы данных
+	Address address;
 
 }

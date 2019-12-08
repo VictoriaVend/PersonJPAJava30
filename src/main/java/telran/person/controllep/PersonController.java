@@ -38,4 +38,18 @@ public class PersonController {
 	public Iterable<PersonDto> findByAge(@RequestBody AgesDto agesDto){
 		return personService.findPersonByAges(agesDto.getMinAge(), agesDto.getMaxAge());
 	}
+	
+	@GetMapping("/city/{city}")
+	public Iterable<PersonDto> findByCity(@PathVariable String city){
+		return personService.findPersonsByCity(city);
+	}
+	
+	@GetMapping("/salary/{min}/{max}")
+	public Iterable<PersonDto> findBySalary(@PathVariable int min, @PathVariable int max){
+		return personService.findEmployeesBySalary(min, max);}
+	
+	@GetMapping("/children")
+	public Iterable<PersonDto> findChildren(){
+		return personService.findChildren();
+	}
 }
