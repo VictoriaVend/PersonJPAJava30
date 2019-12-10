@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import telran.person.dao.PersonRepository;
 import telran.person.dto.ChildDto;
+import telran.person.dto.CityPopulationDto;
 import telran.person.dto.EmployeeDto;
 import telran.person.dto.PersonDto;
 import telran.person.model.Child;
@@ -108,6 +109,12 @@ public class PersonServiceImpl implements PersonService {
 	public Iterable<PersonDto> findChildren() {
 		return personRepository.findBy().stream().map(this::convertorPersonToPersonDto)
 		.collect(Collectors.toList());
+	
+	}
+
+	@Override
+	public Iterable<CityPopulationDto> getCityPopylation() {
+		return personRepository.getCityPopulation();
 	
 	}
 
